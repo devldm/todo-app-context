@@ -12,8 +12,9 @@ export default function TodoInput() {
   const dispatch = useTasksDispatch();
 
   return (
-    <form>
+    <form data-testId="todo-input">
       <TextField
+        role="input"
         id="outlined-basic"
         value={formState.task}
         label="Add a todo"
@@ -29,14 +30,17 @@ export default function TodoInput() {
         type="submit"
         onClick={(e) => {
           e.preventDefault();
-          dispatch({
-            type: "ADD_TASK",
-            payload: {
-              task: formState.task,
-              taskId: Math.random(),
-              isCompleted: false,
-            },
-          });
+          if (formState.task !== "") {
+            dispatch({
+              type: "ADD_TASK",
+              payload: {
+                task: formState.task,
+                taskId: Math.random(),
+                isCompleted: false,
+              },
+            });
+          }
+
           setFormState({ task: "" });
         }}
       >
