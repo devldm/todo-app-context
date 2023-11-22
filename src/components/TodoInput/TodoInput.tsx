@@ -1,7 +1,6 @@
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import { useState } from "react";
 import useTasksDispatch from "../../hooks/useTasksDispatch";
+import styles from "./TodoInput.module.css";
 
 type formState = {
   task: string;
@@ -13,20 +12,19 @@ export default function TodoInput() {
 
   return (
     <form data-testId="todo-input">
-      <TextField
+      <input
+        className={styles.input}
+        type="text"
         role="input"
-        id="outlined-basic"
         value={formState.task}
-        label="Add a todo"
-        variant="outlined"
         required
         placeholder={"What needs to be done?"}
         onChange={(e) =>
           setFormState((prevState) => ({ ...prevState, task: e.target.value }))
         }
       />
-      <Button
-        variant="contained"
+      <button
+        className={styles.button}
         type="submit"
         onClick={(e) => {
           e.preventDefault();
@@ -45,7 +43,7 @@ export default function TodoInput() {
         }}
       >
         Add todo
-      </Button>
+      </button>
     </form>
   );
 }

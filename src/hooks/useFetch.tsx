@@ -10,7 +10,6 @@ export default function useFetch(apiUrl: string) {
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
-      console.log(data.quote);
       setFetchedData(data.quote);
     } catch (e) {
       setFetchedData("");

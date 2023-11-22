@@ -4,7 +4,6 @@ import { TodoItem } from "./Todo";
 
 export default function TodoList() {
   const tasks: Tasks = useTasks();
-  console.log(tasks);
   return (
     <ul>
       {tasks &&
