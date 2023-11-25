@@ -5,7 +5,7 @@ import { TodoItem } from "./Todo";
 export default function TodoList() {
   const tasks: Tasks = useTasks();
   return (
-    <ul>
+    <ul className="flex flex-col gap-2">
       {tasks &&
         tasks.map((t) => {
           return (

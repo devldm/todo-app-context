@@ -1,15 +1,13 @@
-import "./App.css";
-import TodoInput from "./components/TodoInput/TodoInput";
+import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 
 function App() {
-  // const { fetchedData, isLoading } = useFetch("https://api.kanye.rest/");
-
   return (
-    <div data-testid="app">
-      <h1>Todo's</h1>
-      <TodoInput />
-      <TodoList />
+    <div className="w-full max-h-screen flex flex-row items-center justify-center ">
+      <div data-testid="app" className="w-[40%] max-h-screen">
+        <TodoInput />
+        <TodoList />
+      </div>
     </div>
   );
 }
